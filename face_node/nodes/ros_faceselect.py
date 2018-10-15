@@ -62,8 +62,7 @@ while not rospy.is_shutdown():
     if faces!=():
         #利用face++的detectAPI识别刚刚拍摄的照片中的人脸，其实这句调试时能看到不少信息，方便些，可以省略
         detectresult=api.detect(api_key=API_KEY,api_secret=API_SECRET,image_file=File(photo))
-        #将结果输出到打印到命令行界面上
-        print_result('Detect result:', detectresult)
+        print_result('Detect result:', detectresult)	#将结果输出到打印到命令行界面上
 	#调用face++的compareAPI将拍到的照片与本地权限者照片做比较，confidence表示拍到的照片与本地权限者照片是同一人的置信度
         comparation=api.compare(api_key=API_KEY,api_secret=API_SECRET,image_file1=File(compare_photo),image_file2=File(photo))
         confidence=comparation['confidence']
